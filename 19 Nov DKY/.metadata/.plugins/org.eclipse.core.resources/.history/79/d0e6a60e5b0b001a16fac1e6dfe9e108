@@ -1,0 +1,12 @@
+package com.hcl.project;
+
+public class StudentBAL {
+	static StringBuilder sb=new StringBuilder();
+	public boolean addStudentBAL(Student student){
+		boolean isAdded=true;
+		if(objStudent.getSno()<=0){
+			sb.append("StudentNo cannot be Negative or Zero \r\n");
+			isAdded=false;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+package com.hcl.Nov19;
+
+public class FOoutput {
+public static void main(String[] args) {
+	FileInputStream src=new FileInputStream()
+}
+}

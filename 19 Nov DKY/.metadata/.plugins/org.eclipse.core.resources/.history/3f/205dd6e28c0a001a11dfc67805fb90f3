@@ -1,0 +1,11 @@
+package com.hcl.Nov19;
+
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+
+public class DataOutEx1 {
+public static void main(String[] args) {
+	FileInputStream fout= new FileInputStream("c:files/d1.txt");
+	DataInputStream dout= new DataInputStream(fout) ;
+}
+}

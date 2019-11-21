@@ -1,0 +1,5 @@
+package com.hcl.firstproject;
+
+public class CustomerDAO {
+
+}

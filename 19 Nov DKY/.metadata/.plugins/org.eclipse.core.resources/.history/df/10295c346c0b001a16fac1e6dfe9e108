@@ -1,0 +1,49 @@
+package com.hcl.project;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentMain {
+	public static void searchStudent(){
+		int sno;
+		System.out.println("Enter the Student Name...");
+		Scanner sc=new Scanner(System.in);
+		sno=sc.nextInt();
+		StudentBAL obj=new StudentBAL();
+		Student student=obj.searchStudentBal(sno);
+		if(student==null){
+			System.out.println("Student record not Found!....");
+		}else{
+			System.out.println(student);
+		}
+		}
+	public static void showStudent(){
+		StudentBAL obj=new StudentBAL();
+		List<Student> students=obj.showStudentBal();
+		for (Student student : students) {
+			System.out.println(student);
+		}
+	}
+	
+	public static void addStudent(){
+		Student objStudent=new Student();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Student No..");
+		 objStudent.setSno(Integer.parseInt(sc.nextLine()));
+		 System.out.println("Enter the student name...");
+		 objStudent.setName(sc.nextLine());
+		 System.out.println("Enter the city...");
+		 objStudent.setCity(sc.nextLine());
+		 System.out.println("Enter the Cgp...");
+		 objStudent.setCgp(Double.parseDouble(sc.nextLine()));
+		 StudentBAL obj=new StudentBAL();
+		 try {
+			boolean res=obj.addStudentBAL(objStudent);
+			if(res==true){
+				System.out.println("Student Added Successfully...");
+			}
+		} catch (StudentException e) {
+		System.out.println(e.getMessage());
+	}
+  }
+}

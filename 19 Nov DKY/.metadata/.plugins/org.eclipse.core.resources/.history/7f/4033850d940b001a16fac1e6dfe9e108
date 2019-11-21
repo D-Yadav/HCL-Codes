@@ -1,0 +1,77 @@
+package com.hcl.Project2;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+public class CustomerDAO {
+	static List<Customer> LstCustomer = null;
+	static {
+		LstCustomer  = new ArrayList<Customer>();
+	}
+	private int custid;
+	public String addCustomerDAO(Customer customer){
+		LstCustomer.add(customer);
+		return "Customer Created Successfully...";
+	}
+	public List<Customer> showCustomerDAO(){
+		return LstCustomer;
+		
+	}
+	public Customer searchCustomerDAO(int custid){
+		Customer objCustomer=null;
+		for (Customer customer : LstCustomer) {
+			if(customer.getCustId()==custid){
+				objCustomer=customer;
+			}
+		}
+		return objCustomer;
+	}
+	public String deleteCustomerDAO(int custid){
+		String result="";
+		Customer customer=searchCustomerDAO(custid);
+		if(customer!=null){
+			LstCustomer.remove(customer);
+			result="Customer record deleted Successfully...";
+			
+	}else{
+		result ="Customer Record Not Found!...";
+	  }
+		return result;
+	  }
+	public String updateCustomerDAO(Customer objCustomer){
+		Customer customer=searchCustomerDAO(objCustomer.getCustId());
+		String result="";
+		if(customer!=null){
+			for(Customer s : LstCustomer){
+				if(s.getCustId()==objCustomer.getCustId()){
+					s.setCustName(objCustomer.getCustName());
+					s.setAnnualPremium(objCustomer.getAnnualPremium());
+					s.setModalPremium(objCustomer.getModalPremium());
+					s.setPaymentMode(objCustomer.getPaymentMode());
+				}
+			}
+			result="Customer record updated...";
+		}else{
+			result="Customer Record Not Found!...";
+		}
+		return result;
+}
+	public void WriteCustomerFileDao() throws IOException{
+		try {
+		FileOutputStream fout = new FileOutputStream("c:/files/student.txt");
+		ObjectOutputStream objout= new ObjectOutputStream(fout);
+		
+		object.writeObject(lstcustomer);
+		object.close();
+		fout.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

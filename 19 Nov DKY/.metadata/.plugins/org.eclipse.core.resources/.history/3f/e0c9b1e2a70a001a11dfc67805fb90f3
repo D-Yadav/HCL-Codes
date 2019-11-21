@@ -1,0 +1,17 @@
+package com.hcl.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+public class ArrayListDemo {
+public static void main(String[] args) {
+	List names=new ArrayList();
+	names.add("Deepak");
+	names.add("Samita");
+	names.add("Priya");
+	names.add("Deepika");
+	System.out.println("Names are...");
+	//for (Object object : names) {
+		
+	}
+	}
+
